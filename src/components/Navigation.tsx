@@ -47,7 +47,7 @@ const Navigation = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          KRISHNAN ACHARYA
+          YOUR NAME
         </motion.a>
 
         {/* Desktop Navigation */}
