@@ -302,7 +302,7 @@ npm install
 
 ## 🤝 Contributing
 
-This is your portfolio! Feel free to modify, enhance, and make it completely your own.
+Feel free to modify, enhance, and make it completely your own.
 
 ## 📄 License
 
@@ -310,4 +310,4 @@ Free to use for your personal portfolio. Attribution appreciated but not require
 
 ## 🎉 Good Luck!
 
-Remember: This portfolio is a reflection of YOU. Take the time to customize it, add your projects, and make it truly represent your skills and personality. Good luck with your MERN stack learning journey! 🚀
+Remember: This portfolio is a reflection of YOU. Take the time to customize it, add your projects, and make it truly represent your skills and personality. Good luck with your learning journey! 🚀
