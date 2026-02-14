@@ -1,3 +1,5 @@
+// src/components/Skills.tsx
+
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -5,40 +7,74 @@ const skillCategories = [
   {
     title: 'Frontend',
     skills: [
-      { name: 'React', level: 90 },
-      { name: 'TypeScript', level: 85 },
-      { name: 'Tailwind CSS', level: 90 },
-      { name: 'Next.js', level: 80 },
-      { name: 'HTML/CSS', level: 95 },
-      { name: 'JavaScript', level: 90 },
+      'React',
+      'TypeScript',
+      'JavaScript',
+      'HTML/CSS',
+      'Tailwind CSS',
+      'Next.js',
+      'Redux',
+      'Framer Motion',
     ],
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Node.js', level: 85 },
-      { name: 'Express.js', level: 85 },
-      { name: 'MongoDB', level: 80 },
-      { name: 'PostgreSQL', level: 75 },
-      { name: 'REST APIs', level: 90 },
-      { name: 'Authentication', level: 85 },
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'PostgreSQL',
+      'REST APIs',
+      'GraphQL',
+      'Authentication',
+      'JWT',
     ],
   },
   {
     title: 'Tools & Others',
     skills: [
-      { name: 'Git', level: 90 },
-      { name: 'Docker', level: 70 },
-      { name: 'Firebase', level: 80 },
-      { name: 'Postman', level: 85 },
-      { name: 'Vite', level: 85 },
-      { name: 'npm/yarn', level: 90 },
+      'Git',
+      'GitHub',
+      'Docker',
+      'Firebase',
+      'Postman',
+      'Vite',
+      'npm/yarn',
+      'VS Code',
     ],
   },
 ];
 
+const coretech = [
+  'React',
+  'Node.js',
+  'TypeScript',
+  'MongoDB',
+  'Express.js',
+  'Tailwind CSS',
+  'PostgreSQL',
+  'JavaScript',
+  'Git',
+  'Next.js',
+];
+
 const Skills = () => {
   const { ref, isVisible } = useScrollAnimation();
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
 
   return (
     <section id="skills" className="section-padding section-margin">
@@ -59,7 +95,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -69,72 +105,67 @@ const Skills = () => {
               className="p-8 border border-border rounded-2xl bg-card"
             >
               <h3 className="text-2xl font-bold mb-6 gradient-text">{category.title}</h3>
-              <div className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isVisible ? { opacity: 1, x: 0 } : {}}
-                    transition={{
-                      duration: 0.4,
-                      delay: categoryIndex * 0.1 + skillIndex * 0.05,
+              <motion.div
+                variants={container}
+                initial="hidden"
+                animate={isVisible ? 'show' : 'hidden'}
+                className="flex flex-wrap gap-3"
+              >
+                {category.skills.map((skill) => (
+                  <motion.span
+                    key={skill}
+                    variants={item}
+                    whileHover={{ 
+                      scale: 1.1,
+                      transition: { duration: 0.2 }
                     }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium cursor-default hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
                   >
-                    <div className="flex justify-between mb-2">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={isVisible ? { width: `${skill.level}%` } : {}}
-                        transition={{
-                          duration: 1,
-                          delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                          ease: 'easeOut',
-                        }}
-                        className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
+                    {skill}
+                  </motion.span>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
+      </div>
 
-        {/* Tech Logos/Icons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isVisible ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 p-8 border border-border rounded-2xl bg-card"
-        >
-          <h3 className="text-xl font-bold mb-6 text-center">Technologies I Work With</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              'React',
-              'Node.js',
-              'TypeScript',
-              'MongoDB',
-              'Express',
-              'Tailwind',
-              'Git',
-              'Firebase',
-              'PostgreSQL',
-              'Vite',
-              'Docker',
-              'Next.js',
-            ].map((tech) => (
+      {/* Infinite Scrolling Core Technologies - Full Width */}
+      <div className="relative w-full overflow-hidden py-12 my-16">
+        {/* Gradient Overlays for Fade Effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        
+        <div className="flex overflow-hidden">
+          <motion.div
+            className="flex gap-12 whitespace-nowrap"
+            animate={{
+              x: [0, -2400],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Duplicate array multiple times for seamless infinite scroll */}
+            {[...coretech, ...coretech, ...coretech].map((tech, index) => (
               <span
-                key={tech}
-                className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium hover:scale-110 transition-transform cursor-default"
+                key={index}
+                className="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-foreground via-foreground/60 to-foreground bg-clip-text text-transparent tracking-tight"
+                style={{
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                }}
               >
                 {tech}
               </span>
             ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
