@@ -49,43 +49,34 @@ const About = () => {
             className="order-1 lg:order-2 space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate <span className="font-semibold text-foreground">Full Stack Developer</span> with
-              a knack for building modern web applications using the MERN stack. My journey into tech began
-              with a curiosity for solving real-world problems through innovative solutions.
+              I'm a passionate <span className="font-semibold text-foreground">Full Stack Developer</span> and recent <span className="font-semibold text-foreground"> Computer Science graduate</span> with a knack for building modern web applications using the MERN stack. My journey into tech began with a fascination for solving real-world problems through code, which evolved into hands-on experience building scalable web applications using the <span className="font-semibold text-foreground">MERN stack</span>. From AI-powered robotics to full-stack web platforms, I love turning innovative ideas into functional reality.
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              What drives me is the intersection of <span className="font-semibold text-foreground">design and
-              functionality</span>. I believe that great software should not only work flawlessly but also
-              provide an intuitive and delightful user experience.
+               What drives me is the challenge of building complete solutions—from crafting <span className="font-semibold text-foreground">responsive, user-friendly interfaces</span> to architecting <span className="font-semibold text-foreground">robust backend systems </span>with secure authentication and efficient database management. I've completed multiple internships where I honed my skills in full-stack development, gained practical experience with RESTful APIs, and learned the importance of clean code and proper testing.
             </p>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Beyond coding, I thrive in collaborative environments and enjoy tackling challenging problems
-              with creative solutions. I'm always learning new technologies and best practices to stay at
-              the forefront of web development.
-            </p>
 
             <div className="pt-4 space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                 <div>
                   <h4 className="font-semibold mb-1">Currently Learning</h4>
-                  <p className="text-muted-foreground">Advanced system design, microservices architecture, and cloud deployment strategies.</p>
+                  <p className="text-muted-foreground">Advanced system design, microservices architecture, Docker containerization, and cloud deployment strategies with AWS.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                 <div>
                   <h4 className="font-semibold mb-1">Interests</h4>
-                  <p className="text-muted-foreground">Web performance optimization, UI/UX design, open-source contributions, and tech blogging.</p>
+                  <p className="text-muted-foreground">Full-stack development, Web performance optimization, UI/UX design, open-source contributions, tech blogging and building tools that make developers' lives easier. </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary mt-2" />
                 <div>
                   <h4 className="font-semibold mb-1">Fun Fact</h4>
-                  <p className="text-muted-foreground">When I'm not coding, you'll find me exploring new coffee shops or hiking trails!</p>
+                  <p className="text-muted-foreground">I built an AI-powered waste management robot with 86.3% accuracy using YOLO combining my love for code and hardware to solve environmental challenges!</p>
                 </div>
               </div>
             </div>

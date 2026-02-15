@@ -5,27 +5,27 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const services = [
   {
     icon: Code,
-    title: 'Full-Stack Development',
-    description: 'Building complete web applications from frontend to backend with modern technologies like React, Node.js, and Express.',
-    skills: ['React', 'Node.js', 'Express', 'MongoDB'],
+    title: 'Full-Stack Web Development',
+    description: 'Building complete web applications from responsive frontends to robust backend systems. Specializing in MERN stack with authentication, RESTful APIs, and scalable database architecture.',
+    skills: ['React', 'Node.js', 'Express.js', 'MongoDB'],
   },
   {
     icon: Palette,
-    title: 'UI/UX Development',
-    description: 'Creating beautiful, responsive, and intuitive user interfaces that provide seamless experiences across all devices.',
-    skills: ['Tailwind CSS', 'Responsive Design', 'Figma', 'Accessibility'],
+    title: 'Frontend Development & UI',
+    description: 'Creating responsive, user-friendly interfaces that work seamlessly across all devices. Focus on clean design, accessibility, and optimal user experience using modern frameworks.',
+    skills: ['HTML/CSS', 'JavaScript', 'TailwindCSS', 'Bootstrap'],
   },
   {
     icon: Database,
-    title: 'Backend & APIs',
-    description: 'Designing and implementing scalable REST APIs, database architectures, and server-side logic for robust applications.',
-    skills: ['REST APIs', 'MongoDB', 'PostgreSQL', 'Authentication'],
+    title: 'Backend & API Development',
+    description: 'Designing and implementing RESTful APIs, authentication systems, and database management. Building secure, efficient server-side logic with proper error handling and testing.',
+    skills: ['REST APIs', 'MongoDB', 'MySQL', 'Authentication'],
   },
   {
     icon: Globe,
-    title: 'Web Performance',
-    description: 'Optimizing applications for speed, performance, and SEO to deliver the best possible user experience.',
-    skills: ['Performance', 'SEO', 'Best Practices', 'PWA'],
+    title: 'Deployment & Version Control',
+    description: 'Managing complete development lifecycle from coding to deployment. Experienced in debugging, testing, Git workflows, and deploying production-ready applications.',
+    skills: ['Git', 'GitHub', 'Postman', 'Testing'],
   },
 ];
 

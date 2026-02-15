@@ -4,36 +4,36 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured e-commerce application with shopping cart, payment integration, and admin dashboard.',
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&h=600&fit=crop',
-    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    title: 'Short.ly - URL Shortener Service',
+    description: 'Full-stack URL shortening platform with click analytics and authenticated dashboard. Built with MERN stack, features private link management, real-time tracking, and seamless redirection with invisible analytics.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+    tags: ['React', 'Node.js', 'MongoDB', 'Express'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/CipherZemo/url-shortner-service',
   },
   {
-    title: 'Task Management App',
-    description: 'Collaborative task management tool with real-time updates, team workspaces, and Kanban boards.',
-    image: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=600&fit=crop',
-    tags: ['React', 'Express', 'Socket.io', 'PostgreSQL'],
+    title: 'Automated Waste Management Robot',
+    description: 'AI-powered robotic system using YOLO ML model for waste detection and segregation with 86.3% accuracy. Integrated ESP32 microcontroller for movement control and Arduino Nano for robotic arm operations.',
+    image: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=800&h=600&fit=crop',
+    tags: ['Python', 'YOLO', 'ESP32', 'Machine Learning'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/CipherZemo',
   },
   {
-    title: 'Weather Dashboard',
-    description: 'Real-time weather application with forecasts, interactive maps, and location-based services.',
-    image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop',
-    tags: ['React', 'TypeScript', 'API Integration', 'Tailwind'],
+    title: 'Employee Management System',
+    description: 'Comprehensive EMS application for managing employee data with full CRUD operations. Built with Node.js backend, MongoDB database, and responsive Bootstrap frontend for efficient organizational data management.',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
+    tags: ['Node.js', 'MongoDB', 'Bootstrap', 'Express'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/CipherZemo',
   },
   {
-    title: 'Social Media Clone',
-    description: 'Instagram-inspired social platform with posts, comments, likes, and user authentication.',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop',
-    tags: ['React', 'Firebase', 'Authentication', 'Cloud Storage'],
+    title: 'Full-Stack Blog Platform',
+    description: 'Interactive blog application where users can create, view, comment, and like posts. Features complete CRUD operations, user authentication, and dynamic content rendering using EJS templates.',
+    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=600&fit=crop',
+    tags: ['Node.js', 'MongoDB', 'EJS', 'JavaScript'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/CipherZemo/blog-app-node',
   },
 ];
 
@@ -97,7 +97,7 @@ const Projects = () => {
 
                 {/* Links */}
                 <div className="flex gap-4">
-                  <a
+                  {/* <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -105,7 +105,7 @@ const Projects = () => {
                   >
                     <ExternalLink size={18} />
                     Live Demo
-                  </a>
+                  </a> */}
                   <a
                     href={project.githubUrl}
                     target="_blank"

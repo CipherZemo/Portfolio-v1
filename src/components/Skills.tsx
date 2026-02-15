@@ -1,61 +1,61 @@
 // src/components/Skills.tsx
 
-import { motion } from 'framer-motion';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { motion } from "framer-motion";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const skillCategories = [
   {
-    title: 'Frontend',
+    title: "Frontend",
     skills: [
-      'React',
-      'TypeScript',
-      'JavaScript',
-      'HTML/CSS',
-      'Tailwind CSS',
-      'Next.js',
-      'Redux',
-      'Framer Motion',
+      "React",
+      "JavaScript",
+      "HTML/CSS",
+      "Tailwind CSS",
+      "Next.js",
+      "UI/UX",
+      "Responsive Design",
+      "Redux",
     ],
   },
   {
-    title: 'Backend',
+    title: "Backend",
     skills: [
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'PostgreSQL',
-      'REST APIs',
-      'GraphQL',
-      'Authentication',
-      'JWT',
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "NoSQL",
+      "CRUD Operations",
+      "JWT",
+      "RESTful APIs",
+      "Authentication",
     ],
   },
   {
-    title: 'Tools & Others',
+    title: "Tools & Others",
     skills: [
-      'Git',
-      'GitHub',
-      'Docker',
-      'Firebase',
-      'Postman',
-      'Vite',
-      'npm/yarn',
-      'VS Code',
+      "Git",
+      "GitHub",
+      "Postman",
+      "MongoDB Compass",
+      "MongoDB Atlas",
+      "Vite",
+      "Debugging",
+      "Testing",
     ],
   },
 ];
 
 const coretech = [
-  'React',
-  'Node.js',
-  'TypeScript',
-  'MongoDB',
-  'Express.js',
-  'Tailwind CSS',
-  'PostgreSQL',
-  'JavaScript',
-  'Git',
-  'Next.js',
+  "React",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "JavaScript",
+  "Tailwind CSS",
+  "NoSQL",
+  "Git",
+  "Bootstrap",
+  "RESTful APIs",
 ];
 
 const Skills = () => {
@@ -87,11 +87,12 @@ const Skills = () => {
           className="mb-16"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            Skills & Technologies <span className="text-muted-foreground">/</span>
+            Skills & Technologies{" "}
+            <span className="text-muted-foreground">/</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl">
-            A comprehensive toolkit of modern technologies and frameworks I use to build
-            exceptional digital experiences.
+            A comprehensive toolkit of modern technologies and frameworks I use
+            to build exceptional digital experiences.
           </p>
         </motion.div>
 
@@ -104,20 +105,22 @@ const Skills = () => {
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               className="p-8 border border-border rounded-2xl bg-card"
             >
-              <h3 className="text-2xl font-bold mb-6 gradient-text">{category.title}</h3>
+              <h3 className="text-2xl font-bold mb-6 gradient-text">
+                {category.title}
+              </h3>
               <motion.div
                 variants={container}
                 initial="hidden"
-                animate={isVisible ? 'show' : 'hidden'}
+                animate={isVisible ? "show" : "hidden"}
                 className="flex flex-wrap gap-3"
               >
                 {category.skills.map((skill) => (
                   <motion.span
                     key={skill}
                     variants={item}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.1,
-                      transition: { duration: 0.2 }
+                      transition: { duration: 0.2 },
                     }}
                     whileTap={{ scale: 0.95 }}
                     className="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg font-medium cursor-default hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
@@ -136,7 +139,7 @@ const Skills = () => {
         {/* Gradient Overlays for Fade Effect */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        
+
         <div className="flex overflow-hidden">
           <motion.div
             className="flex gap-12 whitespace-nowrap"
@@ -158,7 +161,7 @@ const Skills = () => {
                 key={index}
                 className="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-foreground via-foreground/60 to-foreground bg-clip-text text-transparent tracking-tight"
                 style={{
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  fontFamily: "system-ui, -apple-system, sans-serif",
                 }}
               >
                 {tech}

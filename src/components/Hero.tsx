@@ -25,19 +25,19 @@ const Hero = () => {
     {
       name: 'GitHub',
       icon: Github,
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/CipherZemo',
       color: 'hover:text-pink-400',
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://www.linkedin.com/in/krishnan-acharya-99341a300',
       color: 'hover:text-blue-600',
     },
     {
       name: 'Email',
       icon: Mail,
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:acharyakrishnan9@gmail.com',
       color: 'hover:text-red-600',
     },
     {
@@ -99,7 +99,7 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
               </span>
-              Available for work
+              Open to opportunities
             </span>
           </motion.div>
 
@@ -123,8 +123,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl"
           >
-            Passionate about building polished, intuitive, and thoughtful digital experiences
-            that leave a mark. Specializing in modern web technologies and full-stack development.
+Passionate about building scalable, user-focused web applications that solve real-world problems. Fresh Computer Science graduate with hands-on experience in full-stack development, RESTful APIs, and modern web technologies.
           </motion.p>
 
           {/* CTA Buttons */}

@@ -1,55 +1,75 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Send, Mail, MapPin, Phone } from 'lucide-react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+// src/components/Contact.tsx
+
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Send, Mail, MapPin, Phone } from "lucide-react";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xojndnzp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
       setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      
-      // Reset success message after 3 seconds
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    }, 1500);
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'your.email@example.com',
-      href: 'mailto:your.email@example.com',
+      label: "Email",
+      value: "acharyakrishnan9@gmail.com",
+      href: "mailto:acharyakrishnan9@gmail.com",
     },
     {
       icon: Phone,
-      label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      label: "Phone",
+      value: "+91 9539571610",
+      href: "tel:+919539571610",
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Your City, Country',
-      href: '#',
+      label: "Location",
+      value: "Kollam, Kerala, India",
+      href: "https://maps.app.goo.gl/Bh4iwbrbT39FeFr18",
     },
   ];
 
@@ -81,7 +101,10 @@ const Contact = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
                   Your Name
                 </label>
                 <input
@@ -97,7 +120,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
                   Your Email
                 </label>
                 <input
@@ -113,7 +139,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
                   Your Message
                 </label>
                 <textarea
@@ -134,7 +163,7 @@ const Contact = () => {
                 className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium flex items-center justify-center gap-2 hover:shadow-lg transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
-                  'Sending...'
+                  "Sending..."
                 ) : (
                   <>
                     Send Message
@@ -143,13 +172,23 @@ const Contact = () => {
                 )}
               </button>
 
-              {submitStatus === 'success' && (
+              {submitStatus === "success" && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-50 border border-green-200 text-green-800 rounded-lg"
+                  className="p-4 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-300 rounded-lg"
                 >
                   ✓ Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+
+              {submitStatus === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-300 rounded-lg"
+                >
+                  ✗ Something went wrong. Please try again or email me directly.
                 </motion.div>
               )}
             </form>
@@ -180,7 +219,9 @@ const Contact = () => {
                         <Icon className="text-primary" size={24} />
                       </div>
                       <div>
-                        <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
+                        <p className="text-sm text-muted-foreground mb-1">
+                          {info.label}
+                        </p>
                         <p className="font-medium">{info.value}</p>
                       </div>
                     </motion.a>
@@ -192,25 +233,36 @@ const Contact = () => {
             <div className="p-8 border border-border rounded-2xl bg-card">
               <h3 className="text-xl font-bold mb-4">Let's Connect</h3>
               <p className="text-muted-foreground mb-6">
-                I'm always interested in hearing about new projects and opportunities.
-                Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                I'm always interested in hearing about new projects and
+                opportunities. Whether you have a question or just want to say
+                hi, I'll try my best to get back to you!
               </p>
               <div className="flex gap-4">
                 <a
-                  href="https://github.com/yourusername"
+                  href="https://github.com/CipherZemo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 border border-border rounded-lg hover:bg-secondary transition-all hover:scale-105 font-medium"
                 >
                   GitHub
                 </a>
+
                 <a
-                  href="https://linkedin.com/in/yourusername"
+                  href="https://www.linkedin.com/in/krishnan-acharya-99341a300"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 border border-border rounded-lg hover:bg-secondary transition-all hover:scale-105 font-medium"
                 >
                   LinkedIn
+                </a>
+
+                <a
+                  href="mailto:acharyakrishnan9@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 border border-border rounded-lg hover:bg-secondary transition-all hover:scale-105 font-medium"
+                >
+                  Email
                 </a>
               </div>
             </div>
