@@ -231,7 +231,7 @@ Passionate about building scalable, user-focused web applications that solve rea
               {/* Image */}
               <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                 <img
-                  src="/profile.jpg"
+                  src="/profile.webp"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
