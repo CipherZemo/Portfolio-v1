@@ -1,50 +1,50 @@
 // src/components/Hero.tsx
 
-import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail, FileDown } from 'lucide-react';
-import { useState } from 'react';
+import { motion } from "framer-motion";
+import { ArrowRight, Github, Linkedin, Mail, FileDown } from "lucide-react";
+import { useState } from "react";
 
 const Hero = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
   const scrollToContact = () => {
-    const element = document.querySelector('#contact');
+    const element = document.querySelector("#contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-    const scrollToAbout = () => {
-    const element = document.querySelector('#about');
+  const scrollToAbout = () => {
+    const element = document.querySelector("#about");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const socialLinks = [
     {
-      name: 'GitHub',
+      name: "GitHub",
       icon: Github,
-      href: 'https://github.com/CipherZemo',
-      color: 'hover:text-pink-400',
+      href: "https://github.com/CipherZemo",
+      color: "hover:text-pink-400",
     },
     {
-      name: 'LinkedIn',
+      name: "LinkedIn",
       icon: Linkedin,
-      href: 'https://www.linkedin.com/in/krishnan-acharya-99341a300',
-      color: 'hover:text-blue-600',
+      href: "https://www.linkedin.com/in/krishnan-acharya-99341a300",
+      color: "hover:text-blue-600",
     },
     {
-      name: 'Email',
+      name: "Email",
       icon: Mail,
-      href: 'mailto:acharyakrishnan9@gmail.com',
-      color: 'hover:text-red-600',
+      href: "mailto:acharyakrishnan9@gmail.com",
+      color: "hover:text-red-600",
     },
     {
-      name: 'Resume',
+      name: "Resume",
       icon: FileDown,
-      href: '/resume.pdf',
-      color: 'hover:text-green-600',
+      href: "/resume.pdf",
+      color: "hover:text-green-600",
       download: true,
     },
   ];
@@ -61,7 +61,7 @@ const Hero = () => {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="absolute top-1/4 -left-48 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
         />
@@ -73,7 +73,7 @@ const Hero = () => {
           transition={{
             duration: 25,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
           className="absolute bottom-1/4 -right-48 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
         />
@@ -123,7 +123,10 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl"
           >
-Passionate about building scalable, user-focused web applications that solve real-world problems. Fresh Computer Science graduate with hands-on experience in full-stack development, RESTful APIs, and modern web technologies.
+            Passionate about building scalable, user-focused web applications
+            that solve real-world problems. Fresh Computer Science graduate with
+            hands-on experience in full-stack development, RESTful APIs, and
+            modern web technologies.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -138,10 +141,14 @@ Passionate about building scalable, user-focused web applications that solve rea
               className="group px-8 py-4 bg-primary text-primary-foreground rounded-lg font-medium flex items-center gap-2 hover:shadow-lg transition-all hover:scale-105"
             >
               Get in Touch
-              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+              <ArrowRight
+                className="group-hover:translate-x-1 transition-transform"
+                size={20}
+              />
             </button>
-            
-              <a href="#projects"
+
+            <a
+              href="#projects"
               className="px-8 py-4 border-2 border-border rounded-lg font-medium hover:bg-secondary transition-all hover:scale-105"
             >
               View Projects
@@ -167,8 +174,8 @@ Passionate about building scalable, user-focused web applications that solve rea
                   onMouseEnter={() => setHoveredIcon(social.name)}
                   onMouseLeave={() => setHoveredIcon(null)}
                 >
-                  
-                    <a href={social.href}
+                  <a
+                    href={social.href}
                     target={social.download ? undefined : "_blank"}
                     rel={social.download ? undefined : "noopener noreferrer"}
                     download={social.download}
@@ -177,7 +184,7 @@ Passionate about building scalable, user-focused web applications that solve rea
                   >
                     <Icon size={24} />
                   </a>
-                  
+
                   {/* Tooltip */}
                   {hoveredIcon === social.name && (
                     <motion.div
@@ -227,12 +234,16 @@ Passionate about building scalable, user-focused web applications that solve rea
             >
               {/* Gradient Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full blur-3xl" />
-              
+
               {/* Image */}
               <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
                 <img
                   src="/profile.webp"
-                  alt="Profile"
+                  alt="Krishnan K Acharya"
+                  loading="eager"
+                  fetchPriority="high"
+                  width="400"
+                  height="400"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -243,25 +254,25 @@ Passionate about building scalable, user-focused web applications that solve rea
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1, type: "spring" }}
                 onClick={scrollToAbout}
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
                 className="absolute -bottom-4 -right-4 px-6 py-3 bg-primary text-primary-foreground rounded-full font-bold shadow-lg"
               >
-              Check out more about me!
+                Check out more about me!
               </motion.div>
 
               {/* Decorative Dots */}
               <motion.div
-                animate={{ 
+                animate={{
                   scale: [1, 1.2, 1],
-                  opacity: [0.5, 1, 0.5]
+                  opacity: [0.5, 1, 0.5],
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
                 className="absolute -top-8 -left-8 w-4 h-4 bg-primary rounded-full"
               />
               <motion.div
-                animate={{ 
+                animate={{
                   scale: [1, 1.2, 1],
-                  opacity: [0.5, 1, 0.5]
+                  opacity: [0.5, 1, 0.5],
                 }}
                 transition={{ duration: 3, repeat: Infinity, delay: 0.5 }}
                 className="absolute -bottom-8 -right-8 w-4 h-4 bg-primary rounded-full"
